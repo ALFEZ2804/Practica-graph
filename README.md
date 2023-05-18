@@ -23,15 +23,11 @@ limpiar:
 ```console
 mvn clean
 ```
+
 compilar:
 
 ```console
 mvn compile
-```
-generar el `.jar`: 
-
-```console
-make jar
 ```
 
 generar el `javadoc`:
@@ -48,11 +44,11 @@ mvn test
 
 ## Estructura del código
 
-Tal y como se muestra en la imagen
-
-![imagen](https://github.com/ALFEZ2804/Practica-graph/assets/115775737/bfb37a96-f540-4e73-81fc-85f8aa774d0a)
-
 El código consta de dos clases `Graph.java` que está en el paquete 
 `practicas` que contiene los métodos de la estructura de datos
 y la clase `GraphTest.java` que está en el paquete `practicas` 
 que contiene los métodos de los test de la clase Graph.
+
+Tal y como se muestra en la imagen
+
+![imagen](https://github.com/ALFEZ2804/Practica-graph/assets/115775737/bfb37a96-f540-4e73-81fc-85f8aa774d0a)
