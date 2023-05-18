@@ -33,7 +33,7 @@ mvn compile
 generar el `javadoc`:
 
 ```console
-mvn javadoc: javadoc
+mvn javadoc:javadoc
 ```
 
 ejecutar el programa entero:
