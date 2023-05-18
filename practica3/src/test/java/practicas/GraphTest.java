@@ -19,36 +19,42 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraphTest {
+public class GraphTest 
+{
 
     private Graph<Integer> graph;
 
     @Before
-    public void setUp() {
+    public void setUp() 
+    {
         graph = new Graph();
     }
 
     @Test
-    public void testAddVertex() {
+    public void testAddVertex() 
+    {
         assertTrue(graph.addVertex(1));
         assertFalse(graph.addVertex(1));
     }
 
     @Test
-    public void testAddEdge() {
+    public void testAddEdge() 
+    {
         assertTrue(graph.addEdge(1, 2));
         assertFalse(graph.addEdge(1, 2));
     }
 
     @Test
-    public void testContainsVertex() {
+    public void testContainsVertex() 
+    {
         graph.addVertex(1);
         assertTrue(graph.containsVertex(1));
         assertFalse(graph.containsVertex(2));
     }
 
     @Test
-    public void testObtainAdjacents() throws Exception {
+    public void testObtainAdjacents() throws Exception 
+    {
         graph.addEdge(1, 2);
         graph.addEdge(1, 3);
         assertTrue(graph.obtainAdjacents(1).contains(2));
@@ -56,12 +62,14 @@ public class GraphTest {
     }
 
     @Test(expected = Exception.class)
-    public void testObtainAdjacentsException() throws Exception {
+    public void testObtainAdjacentsException() throws Exception 
+    {
         graph.obtainAdjacents(1);
     }
 
     @Test
-    public void testOnePath() {
+    public void testOnePath() 
+    {
         graph.addEdge(1, 2);
         graph.addEdge(3, 4);
         graph.addEdge(1, 5);
@@ -78,7 +86,8 @@ public class GraphTest {
     }
 
     @Test
-    public void testOnePathNotFound() {
+    public void testOnePathNotFound() 
+    {
         graph.addEdge(1, 2);
         graph.addEdge(3, 4);
         graph.addEdge(1, 5);

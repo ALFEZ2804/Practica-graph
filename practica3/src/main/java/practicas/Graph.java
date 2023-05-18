@@ -21,7 +21,8 @@ import java.util.Stack;
 import java.util.Collections;
 import java.util.HashSet;
 
-public class Graph<V> {
+public class Graph<V> 
+{
     // Lista de adyacencia.
     private Map<V, Set<V>> adjacencyList = new HashMap();
 
@@ -32,8 +33,10 @@ public class Graph<V> {
      * @return ‘true‘ si no estaba anteriormente y ‘false‘ en caso
      *         contrario.
      ******************************************************************/
-    public boolean addVertex(V v) {
-        if (adjacencyList.containsKey(v)) {
+    public boolean addVertex(V v) 
+    {
+        if (adjacencyList.containsKey(v)) 
+        {
             return false;
         }
         adjacencyList.put(v, new HashSet<V>());
@@ -50,10 +53,12 @@ public class Graph<V> {
      * @return ‘true‘ si no existía el arco y ‘false‘ en caso
      *         contrario.
      ******************************************************************/
-    public boolean addEdge(V v1, V v2) {
+    public boolean addEdge(V v1, V v2) 
+    {
         addVertex(v1);
         addVertex(v2);
-        if (adjacencyList.get(v1).contains(v2)) {
+        if (adjacencyList.get(v1).contains(v2)) 
+        {
             return false;
         }
         adjacencyList.get(v1).add(v2);
@@ -66,9 +71,11 @@ public class Graph<V> {
      * @param v vértice del que se obtienen los adyacentes.
      * @return conjunto de vértices adyacentes.
      ******************************************************************/
-    public Set<V> obtainAdjacents(V v) throws Exception {
+    public Set<V> obtainAdjacents(V v) throws Exception 
+    {
         Set<V> adjacents = adjacencyList.get(v);
-        if (adjacents == null) {
+        if (adjacents == null) 
+        {
             throw new Exception("Vertex not found");
         }
         return adjacents;
@@ -80,22 +87,26 @@ public class Graph<V> {
      * @param v vértice para el que se realiza la comprobación.
      * @return ‘true‘ si ‘v‘ es un vértice del grafo.
      ******************************************************************/
-    public boolean containsVertex(V v) {
+    public boolean containsVertex(V v) 
+    {
         return adjacencyList.containsKey(v);
     }
 
-       /******************************************************************
+     /******************************************************************
      * Método ‘toString()‘ reescrito para la clase ‘Grafo.java‘.
      *
      * @return una cadena de caracteres con la lista de
      *         adyacencia.
      ******************************************************************/
     @Override
-    public String toString() {
+    public String toString() 
+    {
         StringBuilder sb = new StringBuilder();
-        for (V vertex : adjacencyList.keySet()) {
+        for (V vertex : adjacencyList.keySet()) 
+        {
             sb.append(vertex.toString() + ": ");
-            for (V adjacent : adjacencyList.get(vertex)) {
+            for (V adjacent : adjacencyList.get(vertex)) 
+            {
                 sb.append(adjacent.toString() + " ");
             }
             sb.append("\n");
@@ -112,20 +123,26 @@ public class Graph<V> {
      * @return lista con la secuencia de vértices desde ‘v1‘ hasta
      *         ‘v2‘ * pasando por arcos del grafo.
      *********************************************************/
-    public List<V> onePath(V v1, V v2) {
+    public List<V> onePath(V v1, V v2) 
+    {
         Map<V, V> trace = new HashMap(); // Crear la tabla traza
         Stack<V> open = new Stack(); // Crear la pila abierta
         open.push(v1);
         trace.put(v1, null); // Inicializar la tabla traza
         boolean found = false;
 
-        while (!open.isEmpty() && !found) {
+        while (!open.isEmpty() && !found) 
+        {
             V v = open.pop();
             found = v.equals(v2);
 
-            if (!found) {
-                for (V s : adjacencyList.get(v)) {
-                    if (!trace.containsKey(s)) { // Evitar ciclos
+            if (!found) 
+            {
+                for (V s : adjacencyList.get(v)) 
+                {
+                    if (!trace.containsKey(s)) 
+                    { 
+                        // Evitar ciclos
                         open.push(s);
                         trace.put(s, v);
                     }
@@ -133,15 +150,19 @@ public class Graph<V> {
             }
         }
 
-        if (found) {
+        if (found) 
+        {
             List<V> path = new ArrayList();
             V v = v2;
-            while (v != null) { // Reconstruir el camino
+            while (v != null) 
+            { 
+                // Reconstruir el camino
                 path.add(0, v);
                 v = trace.get(v);
             }
             return path;
-        } else {
+        } else 
+        {
             return null; // No se encontró un camino
         }
     }
