@@ -10,7 +10,7 @@ either express or implied. See the License for the specific
 language governing permissions and limitations under the
 License.
 
-# El juego de la vida
+# Estructura de datos de grafo
 
 ## Breve descripción de la aplicación
 * El contenido de este repositorio permite simular una estructura de datos de grafo.
